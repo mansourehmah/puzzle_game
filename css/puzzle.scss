@@ -1,4 +1,9 @@
+* {
+  box-sizing: border-box;
+}
 .puzzle {
+  position: relative;
+  overflow: hidden;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   width: 100%;
   height: 100vh;
@@ -13,7 +18,7 @@
     .main {
       padding: 20px;
       width: 100%;
-      height: 400px;
+      height: calc(100% - 70px);
       display: flex;
       flex-wrap: wrap;
       button {
@@ -47,4 +52,63 @@
       }
     }
   }
+  .size {
+    width: 100%;
+    height: 100vh;
+    background-color: #c6ac8f;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: 1s;
+    h3 {
+      color: #22333b;
+      font-size: 40px;
+    }
+    div {
+      padding: 30px 60px;
+      border: 10px solid #5e503f;
+      background-color: #eae0d5;
+      cursor: pointer;
+      transition: 0.4s;
+      &:hover {
+        transform: scale(1.1);
+      }
+      span {
+        font-weight: bold;
+        font-size: 30px;
+      }
+    }
+  }
+  #win {
+    background-color: #f4a261;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    transition: 1s;
+    transform: scale(0);
+    display: none;
+    h3 {
+      font-size: 12vw;
+      color: #264653;
+    }
+  }
+}
+
+.goTop {
+  transform: translateY(-110vh);
+}
+.reSize {
+  width: 120px !important;
+  height: 120px !important;
+}
+.winAnimate {
+  display: flex !important;
+  transform: scale(1) !important;
 }
