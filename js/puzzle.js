@@ -1,12 +1,24 @@
 $(document).ready(function () {
-  //set random numbers
+    var size = 4
+  $(".size div").click(function () {
+    if ($(this).index()==1) {
+      size = 3;
+      $(".puzzle_wraper>.main>button").addClass("reSize");
+      $('.puzzle_wraper .main button:nth-of-type(n+10)').remove()
+    }
+    $(".size").addClass("goTop");
+    start()
+  });
+
+  function start(){
+      //set random numbers
   var _number = [];
-  for (i = 0; i < 15; i++) {
-    _number[i] = Math.floor(Math.random() * 15 + 1);
+  for (i = 0; i < ((size*size) - 1) ; i++) {
+    _number[i] = Math.floor(Math.random() * ((size*size) - 1) + 1);
     function checkRepeat() {
       for (j = 0; j < i; j++) {
         if (_number[i] == _number[j]) {
-          _number[i] = Math.floor(Math.random() * 15 + 1);
+          _number[i] = Math.floor(Math.random() * ((size*size) - 1) + 1);
           checkRepeat();
         }
       }
@@ -14,7 +26,7 @@ $(document).ready(function () {
     checkRepeat();
   }
   //set random number in the buttons
-  for (i = 0; i < 15; i++) {
+  for (i = 0; i < ((size*size) - 1); i++) {
     $(".main button").eq(i).text(_number[i]);
   }
 
@@ -92,19 +104,19 @@ $(document).ready(function () {
   //buttons around of null
   (_left = null), (_top = null), (_bottom = null), (_right = null);
   function foundNullLocation() {
-    for (nullLocation = 0; nullLocation <= 15; nullLocation++) {
+    for (nullLocation = 0; nullLocation <= ((size*size) - 1); nullLocation++) {
       if ($(".main button").eq(nullLocation).text() == "") {
         nullLoc = nullLocation;
-        if (nullLocation % 4 != 0) {
+        if (nullLocation % size != 0) {
           _left = nullLocation - 1;
         }
-        if (nullLocation > 3) {
-          _top = nullLocation - 4;
+        if (nullLocation > size-1) {
+          _top = nullLocation - size;
         }
-        if (nullLocation < 12) {
-          _bottom = nullLocation + 4;
+        if (nullLocation < ((size*size) - size)) {
+          _bottom = nullLocation + size;
         }
-        if (nullLocation % 4 != 3) {
+        if (nullLocation % size != (size - 1)) {
           _right = nullLocation + 1;
         }
       }
@@ -114,13 +126,14 @@ $(document).ready(function () {
   //check winning
   function checkWinning() {
     let lose = 0;
-    for (i = 0; i < 15; i++) {
+    for (i = 0; i < ((size*size) - 1); i++) {
       if (_number[i] != i + 1) {
         lose++;
       }
     }
     if (!lose) {
-      alert("you are winner !");
+      setTimeout(alert('you are win !'), 500);
     }
+  }
   }
 });
