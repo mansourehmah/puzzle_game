@@ -1,4 +1,11 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .puzzle {
+  position: relative;
+  overflow: hidden;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   width: 100%;
   height: 100vh;
@@ -67,5 +74,51 @@
 
 .puzzle .puzzle_wraper .details div span {
   color: #e8eddf;
+}
+
+.puzzle .size {
+  width: 100%;
+  height: 100vh;
+  background-color: #c6ac8f;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.puzzle .size h3 {
+  color: #22333b;
+  font-size: 40px;
+}
+
+.puzzle .size div {
+  padding: 30px 60px;
+  border: 10px solid #5e503f;
+  background-color: #eae0d5;
+  cursor: pointer;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.puzzle .size div:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.puzzle .size div span {
+  font-weight: bold;
+  font-size: 30px;
 }
 /*# sourceMappingURL=puzzle.css.map */
