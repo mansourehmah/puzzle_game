@@ -1,4 +1,23 @@
 $(document).ready(function () {
+  //set random numbers
+  var _number = [];
+  for (i = 0; i < 15; i++) {
+    _number[i] = Math.floor(Math.random() * 15 + 1);
+    function checkNumber() {
+      for (j = 0; j < i; j++) {
+        if (_number[i] == _number[j]) {
+          _number[i] = Math.floor(Math.random() * 15 + 1);
+          checkNumber();
+        }
+      }
+    }
+    checkNumber();
+  }
+  //set random number in the buttons
+  for(i=0 ; i<15 ; i++){
+      $('.main button').eq(i).text(_number[i])
+  }
+
   //timer function
   setInterval(timeUpdate, 1000);
   function timeUpdate() {
@@ -19,7 +38,6 @@ $(document).ready(function () {
 
   //move counter function
   var move = 0;
-
   $(".main button").click(function () {
     if (this.innerHTML != "") {
       move = parseInt($(".move span").text()) + 1;
