@@ -132,7 +132,7 @@ $(document).ready(function () {
         }
       }
       if (!lose) {
-        setTimeout(alert("you are win !"), 500);
+        $("#win").addClass("winAnimate");
       }
     }
   }

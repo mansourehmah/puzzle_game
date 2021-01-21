@@ -83,6 +83,22 @@
       }
     }
   }
+  #win {
+    background-color: #f4a261;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    transition: 1s;
+    transform: scale(0);
+    display: none;
+    h3 {
+      font-size: 12vw;
+      color: #264653;
+    }
+  }
 }
 
 .goTop {
@@ -91,4 +107,8 @@
 .reSize {
   width: 120px !important;
   height: 120px !important;
+}
+.winAnimate {
+  display: flex !important;
+  transform: scale(1) !important;
 }
