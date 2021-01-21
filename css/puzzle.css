@@ -110,8 +110,8 @@
   border: 10px solid #5e503f;
   background-color: #eae0d5;
   cursor: pointer;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .puzzle .size div:hover {
